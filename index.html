@@ -94,7 +94,7 @@
 		<p class="note"><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ru">Ссылка на источник</a></p>
 	</section>
 
-	<section class="slide">
+	<!--<section class="slide">
 		<h2>Что делает браузер:</h2>
 		<ol>
 			<li>запрашивает HTML-документ</li>
@@ -106,7 +106,7 @@
 			<li>если шрифт ещё не доступен, браузер может не показывать текст</li>
 			<li>как только шрифт доступен, браузер показывает текст</li>
 		</ol>
-	</section>
+	</section>-->
 
 	<section class="slide">
 		<h2>Браузер может не показывать текст</h2>
@@ -131,6 +131,10 @@
 				<td style="vertical-align: top; line-height: 1.2em;">сразу показывает текст с помощью фолбэка, и заново отображает страницу после загрузки шрифта</td>
 			</tr>
 		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Проблема плохого соединения</h2>
 	</section>
 
 	<section class="slide">
@@ -375,11 +379,11 @@
 		<pre>
 			<code>&lt;script&gt;</code>
 			<code>	(function() {</code>
-			<code>		if (<mark>sessionStorage.fonts</mark>) {</code>
-			<code>			<span class="comment">// Add font class</span></code>
-			<code>		} else {</code>
-			<code>			<span class="comment">// Init Web Font Loader</span></code>
-			<code>		}</code>
+			<code>	  if (<mark>sessionStorage.fonts</mark>) {</code>
+			<code>		  <span class="comment">// Fonts cached. Add font class.</span></code>
+			<code>	  } else {</code>
+			<code>		  <span class="comment">// No fonts cached.</span></code>
+			<code>	  }</code>
 			<code>	})();</code>
 			<code>&lt;/script&gt;</code>
 		</pre>
@@ -407,6 +411,11 @@
 
 	<section class="slide">
 		<h2><a href="https://github.com/bramstein/fontfaceobserver">Font Face Observer</a></h2>
+		<p>Шрифты подключаются любым способом</p>
+	</section>
+
+	<section class="slide">
+		<h2>Font Face Observer</h2>
 		<pre>
 			<code>&lt;script src="fontfaceobserver.js"&gt;&lt;/script&gt;</code>
 			<code>&lt;script&gt;</code>
@@ -437,8 +446,8 @@
 		<ul class="green">
 			<li>асинхронность</li>
 			<li>браузерный кеш</li>
-			<li>подключение любым способом через единый интерфейс</li>
-			<li>промисы и таймауты</li>
+			<li>подключение любым способом</li>
+			<li>промисы, таймауты</li>
 			<li>отсутствие FOUT / FOIT</li>
 		</ul>
 		<ul class="red">
